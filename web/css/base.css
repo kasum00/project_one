@@ -1,0 +1,16 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fff;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.fixed-header .logo {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
+}

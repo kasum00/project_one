@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Set up profile | OR.site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/reset.css" />
+  <link rel="stylesheet" href="../css/base.css" />
+  <link rel="stylesheet" href="../css/header.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/setup-profile.css" />
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="fixed-header">
+    <a href="index.html" class="logo">OR.site</a>
+  </header>
+
+  <!-- PAGE -->
+  <div class="setup-page">
+
+    <!-- LEFT -->
+    <div class="setup-left">
+      <h1 class="setup-title">Set up profile</h1>
+
+      <form class="setup-form" id="setupForm">
+        <input type="text" name="username" placeholder="User Name" required />
+        <input type="text" name="gender" placeholder="Gender" required />
+        <input type="number" name="height" placeholder="Height (cm)" required />
+        <input type="text" name="style" placeholder="Style preference" required />
+        <input type="text" name="favoriteColor" placeholder="Favourite color" required />
+
+        <button type="submit">Save & continue</button>
+      </form>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="setup-right">
+      <img src="../img/login-art.png" alt="Fashion illustration" />
+    </div>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      window.location.href = "login.html";
+    }
+
+    const form = document.getElementById("setupForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const data = Object.fromEntries(new FormData(form));
+
+      try {
+        const res = await fetch("http://localhost:3000/api/users/profile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + token
+          },
+          body: JSON.stringify(data)
+        });
+
+        if (!res.ok) {
+          throw new Error("Setup profile failed");
+        }
+
+        window.location.href = "dashboard.html";
+
+      } catch (err) {
+        alert("Failed to setup profile");
+        console.error(err);
+      }
+    });
+  </script>
+<script  src="../js/api.js"></script>
+<script  src="../js/setup-profile.js"></script>
+
+</body>
+</html>

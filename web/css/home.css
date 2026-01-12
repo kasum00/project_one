@@ -1,0 +1,74 @@
+/* NAVBAR */
+.navbar {
+  height: 70px;
+  background: #e98fa8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
+}
+
+.navbar nav a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  height: calc(100vh - 70px);
+  background-image: url("../img/bg-outfit.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* OVERLAY */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* CARD */
+.card {
+  position: relative;
+  background: #fff;
+  width: 540px;
+  padding: 50px 40px;
+  border-radius: 30px;
+  text-align: center;   /* QUAN TRỌNG */
+}
+
+
+.card h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 30px;
+  color: #e88aa2;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #444;
+  margin-bottom: 35px;
+}
+
+.card .btn {
+  width: 220px;
+  margin: 12px auto;    /* auto = căn giữa */
+}

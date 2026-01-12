@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Profile | OR.site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/base.css">
+  <link rel="stylesheet" href="../css/header.css">
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+
+<!-- ===== HEADER (PRIVATE) ===== -->
+<header class="fixed-header">
+  <div class="header-inner">
+    <a href="dashboard.html" class="logo">OR.site</a>
+
+    <nav class="nav">
+      <a class="nav-link" href="dashboard.html">Home</a>
+      <a class="nav-link" href="wardrobe.html">Wardrobe</a>
+      <a class="nav-link" href="chatbot.html">Chatbot</a>
+      <a class="nav-link active" href="profile.html">Profile</a>
+      <a href="#" id="signOutBtn">Sign Out</a>
+
+    </nav>
+  </div>
+</header>
+
+<!-- ===== PAGE ===== -->
+<main class="profile-page">
+
+  <!-- USER SUMMARY -->
+  <section class="profile-card">
+    <img
+      class="avatar"
+      src="../img/default-avatar.png"
+      alt="User avatar"
+    >
+
+    <h2 id="username">Username</h2>
+    <p id="email">email@example.com</p>
+  </section>
+
+  <!-- PROFILE DETAILS -->
+  <section class="profile-details">
+    <h3>Personal Information</h3>
+
+    <ul class="info-list">
+      <li>
+        <span class="label">Gender</span>
+        <span class="value">Female</span>
+      </li>
+
+      <li>
+        <span class="label">Height</span>
+        <span class="value">165 cm</span>
+      </li>
+
+      <li>
+        <span class="label">Style Preference</span>
+        <span class="value">Casual, Minimal</span>
+      </li>
+
+      <li>
+        <span class="label">Favorite Color</span>
+        <span class="value">Beige</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- WARDROBE STATS -->
+  <section class="profile-wardrobe">
+    <h3>Wardrobe Overview</h3>
+
+    <div class="stats">
+      <div class="stat-item">
+        <strong>120</strong>
+        <span>Total items</span>
+      </div>
+
+      <div class="stat-item">
+        <strong>11</strong>
+        <span>Categories</span>
+      </div>
+
+      <div class="stat-item">
+        <strong>2 days ago</strong>
+        <span>Last upload</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIONS -->
+  <section class="profile-actions">
+    <a href="setup-profile.html" class="btn">Edit profile</a>
+    <a href="forgot-password.html" class="btn outline">Change password</a>
+    <a href="#" class="btn danger">Sign out</a>
+  </section>
+
+</main>
+<script>
+  document.getElementById("signOutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("token");  
+    window.location.href = "index.html"; 
+  });
+</script>
+<script src="../js/guard.js"></script>
+
+<script src="../js/api.js"></script>
+<script src="../js/user-info.js"></script>
+
+
+
+</body>
+</html>

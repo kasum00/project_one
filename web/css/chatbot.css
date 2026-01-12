@@ -1,0 +1,282 @@
+/* ================= GLOBAL FIX ================= */
+html, body {
+  height: 100%;
+  overflow: hidden; /* ❌ khóa cuộn toàn trang */
+}
+
+/* ================= PAGE ================= */
+.chatbot-page {
+  height: calc(100vh - 70px);
+  padding: 32px 80px 24px;
+  background:
+    radial-gradient(circle at left bottom, #f9c7d3 0%, #ffffff 35%),
+    radial-gradient(circle at right bottom, #f9c7d3 0%, #ffffff 35%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* ❌ không cho page tự cuộn */
+}
+
+/* ================= TITLE ================= */
+.chatbot-title {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #e2a1b2;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* ================= CHAT CONTAINER ================= */
+.chat-container {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; /* 🔑 cho phép con flex scroll */
+}
+
+/* ================= CHAT WINDOW ================= */
+.chat-window {
+  flex: 1;
+  min-height: 0;           /* 🔑 quan trọng */
+  overflow-y: auto;        /* ✅ chỉ cuộn ở đây */
+  padding: 36px 40px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* ================= CHAT MESSAGE ================= */
+.chat-message {
+  max-width: 70%;
+  padding: 16px 22px;
+  border-radius: 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* BOT MESSAGE */
+.chat-message.bot {
+  align-self: flex-start;
+  background: #f3d0db;
+  color: #000;
+}
+
+/* USER MESSAGE */
+.chat-message.user {
+  align-self: flex-end;
+  background: #e8b5c3;
+  color: #000;
+}
+
+/* ================= TYPING INDICATOR ================= */
+.chat-message.typing {
+  display: flex;
+  gap: 6px;
+}
+
+.chat-message.typing span {
+  width: 6px;
+  height: 6px;
+  background: #000;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: blink 1.4s infinite both;
+}
+
+.chat-message.typing span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.chat-message.typing span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0% { opacity: 0.3; }
+  20% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* ================= INPUT ================= */
+.chat-input {
+  margin-top: 14px;
+  display: flex;
+  gap: 14px;
+  flex-shrink: 0; /* ❌ không bị ép nhỏ khi chat dài */
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 18px 26px;
+  border-radius: 999px;
+  border: none;
+  font-size: 15px;
+  outline: none;
+}
+
+/* ================= SEND BUTTON ================= */
+.chat-input button {
+  padding: 18px 46px;
+  border-radius: 999px;
+  border: none;
+  background: #e8b5c3;
+  font-size: 15px;
+  font-weight: 600;
+  color: #000;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.chat-input button:hover {
+  background: #e64b6a;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.chat-input button:active {
+  background: #d94a6a;
+  color: #fff;
+}
+
+/* ================= OPTION BUTTONS ================= */
+.chat-option-btn {
+  padding: 8px 14px;
+  border-radius: 20px;
+  border: none;
+  background: #f2b6c6;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.chat-option-btn:hover {
+  background: #e79db1;
+}
+
+/* ================= IMAGE GRID (TRONG CHAT) ================= */
+.chat-message.image-grid {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.chat-message.image-grid img {
+  width: 140px;
+  border-radius: 12px;
+}
+
+/* ================= OUTFIT OVERLAY ================= */
+.outfit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.outfit-overlay.hidden {
+  display: none;
+}
+
+.outfit-panel {
+  width: 420px;
+  height: 100%;
+  background: #f9d6df;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.outfit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.outfit-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.outfit-header button {
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.outfit-grid {
+  flex: 1;
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.outfit-grid img {
+  width: 100%;
+  border-radius: 12px;
+  background: #fff;
+  padding: 6px;
+}
+
+/* ================= ITEM PICKER OVERLAY ================= */
+.item-picker-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-picker-overlay.hidden {
+  display: none;
+}
+
+.item-picker-panel {
+  width: 900px;
+  max-height: 80vh;
+  background: #f9d6df;
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.item-picker-grid {
+  overflow-y: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.item-picker-grid img {
+  width: 100%;
+  border-radius: 14px;
+  background: #fff;
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.item-picker-grid img:hover {
+  transform: scale(1.04);
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | OR.site</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- CSS -->
+   <link rel="stylesheet" href="../css/reset.css">
+   <link rel="stylesheet" href="../css/base.css">
+   <link rel="stylesheet" href="../css/header.css">
+  
+  
+  <link rel="stylesheet" href="../css/components.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <!-- HEADER -->
+  <header class="fixed-header">
+    <div class="header-inner">
+      <a href="dashboard.html" class="logo">OR.site</a>
+
+      <nav class="nav">
+        <a class="active" href="dashboard.html">Home</a>
+        <a href="wardrobe.html">Wardrobe</a>
+        <a href="chatbot.html">Chatbot</a>
+        <a href="profile.html">Profile</a>
+        <a href="#" id="signOutBtn">Sign Out</a>
+
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="dashboard">
+
+    <!-- USER INFO -->
+    <section class="user-info">
+      <div class="avatar"></div>
+
+      <div class="user-text">
+        <h2>Hello username,</h2>
+        <p>Email</p>
+      </div>
+    </section>
+
+    <!-- CENTER CONTENT -->
+    <section class="dashboard-center">
+
+      <!-- MAIN TITLE -->
+      <h1>
+        Upload your wardrobe to receive <br>
+        personalized outfit recommendations.
+      </h1>
+
+      <!-- UPLOAD BUTTON -->
+      <form class="upload-form">
+  <label class="btn upload-btn">
+    Upload Wardrobe
+    <input
+      type="file"
+      id="uploadInput"
+      accept="image/*"
+      multiple
+      hidden
+    >
+  </label>
+</form>
+
+
+      <!-- READY STATE -->
+      <div class="upload-success">
+        <p>Your wardrobe is ready</p>
+
+        <a href="chatbot.html" class="btn chatbot-btn">
+          Go to chatbot
+        </a>
+      </div>
+
+    </section>
+
+  </main>
+  <script>
+  document.getElementById("signOutBtn")?.addEventListener("click", () => {
+    localStorage.removeItem("token");   
+    window.location.href = "index.html"; 
+  });
+  </script> 
+<script src="../js/guard.js"></script>
+<script  src="../js/api.js"></script>
+
+<script  src="../js/user-info.js"></script>
+<script  src="../js/dashboard.js"></script>
+
+
+</body>
+</html>

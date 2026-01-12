@@ -1,0 +1,105 @@
+
+
+.login-page {
+  display: flex;
+  min-height: calc(100vh - 70px);
+  background: #fff;
+}
+
+/* LEFT PANEL */
+.login-left {
+  width: 45%;
+  padding: 80px 100px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* LOGO OR.site */
+.logo.pink {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  color: #f3a1b7;
+  font-weight: bold;
+  margin-bottom: 70px;  
+  align-self: flex-start;
+}
+
+/* TITLE */
+.login-left h1 {
+  width: 420px;
+  font-family: "Playfair Display", serif;
+  font-size: 34px;
+  line-height: 1.3;
+  color: #f3a1b7;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+/* ===== FORM AREA ===== */
+.login-left input,
+.login-btn {
+  width: 420px;        
+}
+
+/* INPUT */
+.login-left input {
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1.8px solid #f5b2c4;
+  font-size: 15px;
+  outline: none;
+}
+
+/* CÁCH ĐỀU CÁC BOX */
+.login-left input + input {
+  margin-top: 24px;
+}
+
+.login-btn {
+  width: 220px;         
+  padding: 14px 0;
+  border-radius: 30px;
+  background: #f5b2c4;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  margin: 24px auto 0;  
+  transition: 0.25s;
+}
+
+
+.login-btn:hover {
+  background: #e88aa2;
+  color: #fff;
+}
+
+/* LINKS */
+.login-links {
+  width: 420px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 26px;
+}
+
+.login-links a {
+  font-size: 13px;
+  color: #444;
+  text-decoration: none;
+}
+
+/* RIGHT PANEL */
+.login-right {
+  width: 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #ffd3df 0%, #ffffff 70%);
+}
+
+.login-right img {
+  width: 65%;
+  max-width: 420px;
+}

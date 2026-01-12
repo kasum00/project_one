@@ -1,0 +1,51 @@
+.btn {
+  display: block;
+  padding: 14px 0;
+  border-radius: 30px;
+  border: none;
+  background: #f5b2c4;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: #e88aa2;
+  color: #fff;
+}
+
+.btn.outline {
+  background: #f5b2c4;
+}
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.toast-success {
+  background: #4caf50;
+}
+
+.toast-error {
+  background: #f44336;
+}
+
+.toast-warning {
+  background: #ff9800;
+}
